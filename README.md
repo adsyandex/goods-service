@@ -1,7 +1,8 @@
 # goods-service
 
 ## Структура проекта
-``/goods-service
+```
+/goods-service
 ├── Dockerfile
 ├── docker-compose.yml
 ├── go.mod
@@ -20,4 +21,4 @@
     └── handlers
         ├── goods.go
         └── reprioritize.go
-``
+```
