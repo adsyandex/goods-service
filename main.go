@@ -5,6 +5,7 @@ import (
 	"net/http"
 	"os"
 	
+	"github.com/joho/godotenv"
 	"goods-service/internal/app"
 	"github.com/go-redis/redis/v8"
 	"github.com/jmoiron/sqlx"
@@ -13,8 +14,14 @@ import (
 )
 
 func main() {
+	  // Загрузка .env
+    if err := godotenv.Load(); err != nil {
+        log.Print("No .env file found")
+    }
+	
 	// Инициализация подключений
-	db, err := sqlx.Connect("postgres", os.Getenv("DB_DSN"))
+	 dbDSN := os.Getenv("DB_DSN")
+    db, err := sqlx.Connect("postgres", dbDSN)
 	if err != nil {
 		log.Fatalf("Failed to connect to database: %v", err)
 	}
