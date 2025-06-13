@@ -51,16 +51,17 @@
 git clone https://github.com/yourusername/goods-service.git
 cd goods-service
 ```
+## Запуск через Docker
+```
+docker-compose up --build
+```
 
 ## Пример запроса
-### Создание запроса:
+#### Создание запроса:
 ```
 curl -X POST http://localhost:8080/goods \
   -H "Content-Type: application/json" \
   -d '{"name": "Новый товар", "description": "Описание товара"}'
 ```
 
-## Запуск через Docker
-```
-docker-compose up --build
-```
+
